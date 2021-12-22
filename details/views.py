@@ -64,8 +64,11 @@ def register(request):
                 lname = fm.cleaned_data.get('lastname')
                 fm.save()
                 fm = registration()
-                messages.success(request, 'Account has been successfully created for ' + fname +" " + lname)
+                messages.success(request, 'Form has been successfully submited for ' + fname +" " + lname)
                 return redirect('login')
+            else:
+                messages.info(request, "Something went wrong Please try again OR Please check your Password and Confirm Password!")
+            
             
             
         fm = registration()
